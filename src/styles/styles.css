@@ -1,0 +1,9 @@
+#app {
+  font: 14px 'Helvetica';
+  min-width: 550px;
+  max-width: 850px;
+  margin: 0 auto;
+}
+.active {
+  color: magenta;
+}

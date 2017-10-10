@@ -2,4 +2,4 @@ import colors from "colors";
 
 /* eslint-disable no-console */
 
-console.log("Here we go!".green);
+console.log("Hold onto your".magenta, "butts".rainbow);
