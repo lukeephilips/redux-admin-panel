@@ -16,6 +16,8 @@ export class ManageCoursePage extends React.Component {
     };
     this.updateCourseState = this.updateCourseState.bind(this);
     this.saveCourse = this.saveCourse.bind(this);
+    this.deleteCourse = this.deleteCourse.bind(this);
+
 
   }
   componentWillReceiveProps(nextProps){
@@ -60,9 +62,17 @@ export class ManageCoursePage extends React.Component {
     toastr.success('nice work bozo');
     this.context.router.push("/courses");
   }
+  deleteCourse(event) {
+    this.setState({saving: true});
+    this.props.actions.deleteCourse(this.state.course.id).then(() => toastr.success('nice work bozo')).catch(error => {
+      toastr.error(error);
+      this.setState({saving: false});
+    });
+  }
   render() {
     return (
       <div className="col-xs-6">
+        <button className="btn btn-danger" onClick={this.deleteCourse}>delete</button>
         <CourseForm
           allAuthors={this.props.authors}
           course={this.state.course}

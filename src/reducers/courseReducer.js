@@ -1,5 +1,7 @@
 import * as types from "../actions/actionTypes";
 import initialState from './initialState';
+import {browserHistory} from 'react-router';
+
 
 
 export default function courseReducer(state = initialState.courses, action) {
@@ -14,6 +16,11 @@ export default function courseReducer(state = initialState.courses, action) {
     case types.UPDATE_COURSE_SUCCESS:
       return [
         ...state.filter(course => course.id !== action.course.id), Object.assign({}, action.course)
+      ];
+    case types.DELETE_COURSE_SUCCESS:
+      browserHistory.push('/courses');
+      return [
+        ...state.filter(course => course.id !== action.course)
       ];
 
     default:

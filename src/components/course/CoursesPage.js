@@ -4,6 +4,8 @@ import {bindActionCreators} from 'redux';
 import {browserHistory} from 'react-router';
 import * as courseActions from '../../actions/courseActions';
 import CourseList from './CourseList';
+import toastr from 'toastr';
+
 
 class CoursesPage extends React.Component{
   constructor(props, context) {
@@ -13,6 +15,7 @@ class CoursesPage extends React.Component{
   redirectToAddCoursePage() {
     browserHistory.push("/course");
   }
+
   render() {
     const {courses} = this.props;
 
@@ -24,7 +27,7 @@ class CoursesPage extends React.Component{
           value="Add a course"
           className="btn btn-success"
           onClick={this.redirectToAddCoursePage} />
-        <CourseList courses={courses}/>
+        <CourseList courses={courses} />
       </div>
     );
   }
