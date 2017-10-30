@@ -62,9 +62,13 @@ export class ManageCoursePage extends React.Component {
     toastr.success('nice work bozo');
     this.context.router.push("/courses");
   }
+  deleteRedirect(){
+    this.context.router.push("/courses");
+    toastr.success('nice work bozo')
+  }
   deleteCourse(event) {
     this.setState({saving: true});
-    this.props.actions.deleteCourse(this.state.course.id).then(() => toastr.success('nice work bozo')).catch(error => {
+    this.props.actions.deleteCourse(this.state.course.id).then(() => this.deleteRedirect()).catch(error => {
       toastr.error(error);
       this.setState({saving: false});
     });

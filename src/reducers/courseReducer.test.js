@@ -33,4 +33,18 @@ describe("Course reducer", () => {
     expect(untouchedCourse.title).toEqual("A");
     expect(newState.length).toEqual(3);
   });
+  // it("should delete course when passed DELETE_COURSE_SUCCESS", () => {
+  //   const initalState = [
+  //     {id: "A", title: "A"},
+  //     {id: "B", title: "B"},
+  //     {id: "C", title: "C"}
+  //   ];
+  //   const course = initalState[0];
+  //   console.log(course)
+  //   const action = actions.deleteCourseSuccess(course);
+  //
+  //   const newState = CourseReducer(initalState, action);
+  //
+  //   expect(newState.length).toEqual(2);
+  // });
 });

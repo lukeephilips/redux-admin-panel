@@ -36,4 +36,19 @@ describe("Store", () => {
     expect(actual[1].title).toEqual("ching chong");
 
   });
+  it("should handle deleting courses", () => {
+    const store = createStore(rootReducer, initialState);
+    const course = {
+      title: "ding dong"
+    };
+    const add = courseActions.createCourseSuccess(course);
+    store.dispatch(add);
+
+    const action = courseActions.deleteCourseSuccess(course);
+    store.dispatch(action);
+    const actual = store.getState().courses;
+
+    expect(actual).toEqual(0);
+
+  });
 });
